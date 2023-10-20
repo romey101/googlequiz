@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/emblem.png" />
+    <title>Cyber Security Awareness Quiz | GDSC IMAAMU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1 class="sr-only">A Cyber Security Quiz</h1>
+<section class="quiz">
+    <div class="quiz__question">
+      <div style="text-align:center" class="hint">Hint!
+        <span  class="hinttext">This vulnerability can be mitigated by using prepared statements, it prevent the attacker from being able to modify query.</span>
+      </div>
+      <p class="code">
+        String sql = "SELECT * FROM users 
+      <p>  WHERE username='" + username + "' AND password='" + password + "'";</p>
+        Statement stmt = conn.createStatement();</p>
+        <p>  ResultSet rs = stmt.executeQuery(sql);  </p>
+    </div>
+    <form class="quiz__form">
+      <label for="quizAnswer" class="sr-only">Input Answer:</label>
+      <input
+        type="text"
+        name="quizAnswer"
+        id="quizAnswer"
+        placeholder="Enter answer"
+        class="quiz__input" />
+      <button type="submit" class="btn btn__submit">Submit</button>
+    </form>
+  </section>

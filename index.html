@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/emblem.png" />
+    <title>Cyber Security Awareness Quiz | GDSC IMAAMU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1 class="sr-only">A Cyber Security Quiz</h1>
+      <!-- Intro Section starts -->
+      <section id="intro" class="intro">
+        <div class="intro__logo">
+          <img src="./images/LOGO.png" alt="" class="intro__img" width="500px" />
+        </div>
+        <div class="intro__content">
+          <h2 class="intro__heading">
+            Welcome to the Cybersecurity Awareness Quiz Game!
+          </h2>
+          <p class="intro__paragraph">
+            Test your knowledge and enhance your cybersecurity awareness. Are
+            you ready to begin? Click the "Start" button to kick off the game.
+            Good luck!
+          </p>
+          <a href="quest1.html">
+             <button
+            id="startBtn"
+            class="btn btn__start intro__btn intro__btn_shake" >
+            Start
+          </button>
+          </a>
+       
+        </div>
+      </section>
+      <!-- Intro Section ends -->
+
+      <!-- Quiz1 Section starts -->
+      <!-- <section class="quiz">
+        <div class="quiz__question">
+          <p class="code">
+            <span>// c++ hello world program</span>
+            <span>#include &lt;iostream&gt;&lt;/iostream&gt;</span>
+            <span>int main() {</span>
+            <span class="code__line">// Program code here</span>
+            <span class="code__line">std::cout << "Hello world!";</span>
+            <span class="code__line">return 0;</span>
+            <span>}</span>
+          </p>
+        </div>
+        <div class="quiz__options">
+          <button class="btn btn__option quiz__option">option</button>
+          <button class="btn btn__option quiz__option quiz__option_correct">
+            option
+          </button>
+          <button class="btn btn__option quiz__option">option</button>
+          <button class="btn btn__option quiz__option quiz__option_wrong">
+            option
+          </button>
+        </div>
+      </section> -->
+      <!-- Quiz1 Section ends -->
+
+      <!-- Quiz2 Section starts -->
+      <!-- <section class="quiz">
+        <div class="quiz__question">
+          <p class="code">
+            
+          </p>
+        </div>
+        <form class="quiz__form">
+          <label for="quizAnswer" class="sr-only">Input Answer:</label>
+          <input
+            type="text"
+            name="quizAnswer"
+            id="quizAnswer"
+            placeholder="Enter answer"
+            class="quiz__input" />
+          <button type="submit" class="btn btn__submit">Submit</button>
+        </form>
+      </section> -->
+      <!-- Quiz2 Section ends -->
+      <button id="nextBtn" class="quiz__next-btn hide" name="Next button">
+        <img src="./images/next.png" alt="" />
+      </button>
+    </main>
+  </body>
+</html>
