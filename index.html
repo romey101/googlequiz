@@ -23,7 +23,7 @@
       <!-- Intro Section starts -->
       <section id="intro" class="intro">
         <div class="intro__logo">
-          <img src="./images/LOGO.png" alt="" class="intro__img" width="500px" />
+          <img src="./images/LOGO.png" alt="" class="intro__img" />
         </div>
         <div class="intro__content">
           <h2 class="intro__heading">
@@ -34,49 +34,57 @@
             you ready to begin? Click the "Start" button to kick off the game.
             Good luck!
           </p>
-          <a href="quest1.html">
-             <button
+          <button
             id="startBtn"
-            class="btn btn__start intro__btn intro__btn_shake" >
+            class="btn btn__start intro__btn intro__btn_shake">
             Start
           </button>
-          </a>
-       
         </div>
       </section>
       <!-- Intro Section ends -->
 
       <!-- Quiz1 Section starts -->
-      <!-- <section class="quiz">
+      <section class="quiz" data-type="options">
         <div class="quiz__question">
-          <p class="code">
-            <span>// c++ hello world program</span>
-            <span>#include &lt;iostream&gt;&lt;/iostream&gt;</span>
-            <span>int main() {</span>
-            <span class="code__line">// Program code here</span>
-            <span class="code__line">std::cout << "Hello world!";</span>
-            <span class="code__line">return 0;</span>
-            <span>}</span>
+          <p>
+            A Security technician has identified malware running in the OS
+            kernal. Traditional auntie-malware scans were not able to identify
+            any problems on the computer. Which of the following would be the
+            BEST description of this malware?
           </p>
         </div>
         <div class="quiz__options">
-          <button class="btn btn__option quiz__option">option</button>
-          <button class="btn btn__option quiz__option quiz__option_correct">
-            option
+          <button class="btn btn__option quiz__option quiz__btn" data-index="1">
+            Rootkit
           </button>
-          <button class="btn btn__option quiz__option">option</button>
-          <button class="btn btn__option quiz__option quiz__option_wrong">
-            option
+          <button class="btn btn__option quiz__option quiz__btn" data-index="2">
+            Botnet
+          </button>
+          <button class="btn btn__option quiz__option quiz__btn" data-index="3">
+            Worm
           </button>
         </div>
-      </section> -->
+      </section>
       <!-- Quiz1 Section ends -->
 
       <!-- Quiz2 Section starts -->
-      <!-- <section class="quiz">
+      <section class="quiz" data-type="form">
         <div class="quiz__question">
           <p class="code">
-            
+            <span class="code__highlighted">// State the line with vulnerability in the following code:</span>
+            <span>String sql = "SELECT * FROM users</span>
+            <span>
+              WHERE username='" + username + "' AND password='" + password +
+              "'";
+            </span>
+            <span>Statement stmt = conn.createStatement();</span>
+            <span>ResultSet rs = stmt.executeQuery(sql);</span>
+            <div class="hint quiz__hint">
+              <p tabindex="0" class="hint__title">Hint!</p>
+              <p class="hint__paragraph">
+                This vulnerability can be mitigated by using prepared statements, it prevent the attacker from being able to modify query.
+              </p>
+            </div>
           </p>
         </div>
         <form class="quiz__form">
@@ -86,13 +94,120 @@
             name="quizAnswer"
             id="quizAnswer"
             placeholder="Enter answer"
-            class="quiz__input" />
-          <button type="submit" class="btn btn__submit">Submit</button>
+            class="quiz__input"
+            required />
+          <button type="submit" class="btn btn__submit quiz__btn">Submit</button>
         </form>
-      </section> -->
+        <img
+          src="./images/form=correct.png"
+          alt=""
+          class="quiz__form-feedback hide" />
+      </section>
       <!-- Quiz2 Section ends -->
+
+      <!-- Quiz3 Section starts -->
+      <section class="quiz" data-type="options">
+        <div class="quiz__question">
+          <p>
+            An attacker is using every combination of letters, numbers and
+            special characters in an attempt to discover a user’s password.
+            Which of the following would describe this attack type?
+          </p>
+        </div>
+        <div class="quiz__options">
+          <button class="btn btn__option quiz__option quiz__btn" data-index="1">
+            Spoofing
+          </button>
+          <button class="btn btn__option quiz__option quiz__btn" data-index="2">
+            Brute force attack
+          </button>
+          <button class="btn btn__option quiz__option quiz__btn" data-index="3">
+            DDoS
+          </button>
+        </div>
+      </section>
+      <!-- Quiz3 Section ends -->
+
+      <!-- Quiz4 Section starts -->
+      <section class="quiz" data-type="form">
+        <div class="quiz__question">
+          <p class="code">
+            <span class="code__highlighted">// State the line with vulnerability in the following code:</span>
+            <span>&lt;form action="/change-password" method="POST"&gt;</span>
+            <span>&lt;input type="password" name="new-password"&gt;</span>
+            <span
+              >&lt;input type="submit" value="Change Password"&gt;
+              &lt;/form&gt;</span
+            >
+          </p>
+          <div class="hint quiz__hint">
+            <p tabindex="0" class="hint__title">Hint!</p>
+            <p class="hint__paragraph">
+              This vulnerability can be mitigated by using CSRF tokens to ensure
+              that requests originate from the intended user.
+            </p>
+          </div>
+        </div>
+        <form class="quiz__form">
+          <label for="quizAnswer" class="sr-only">Input Answer:</label>
+          <input
+            type="text"
+            name="quizAnswer"
+            id="quizAnswer"
+            placeholder="Enter answer"
+            class="quiz__input"
+            required />
+          <button type="submit" class="btn btn__submit quiz__btn">Submit</button>
+        </form>
+        <img
+          src="./images/form-error.png"
+          alt=""
+          class="quiz__form-feedback hide" />
+      </section>
+      <!-- Quiz4 Section ends -->
+
+      <!-- Quiz5 Section starts -->
+      <section class="quiz" data-type="options">
+        <div class="quiz__question">
+          <p>
+            A user is receiving alerts on their desktop computer, stating”
+            access to this PC has been blocked for security reasons”. The
+            technician has determined this message was not created by the
+            company’s security software. Which of the following would be the
+            best Next step in this troubleshooting process?
+          </p>
+        </div>
+        <div class="quiz__options">
+          <button class="btn btn__option quiz__option quiz__btn" data-index="1">
+            Restart the desktop computer
+          </button>
+          <button class="btn btn__option quiz__option quiz__btn" data-index="2">
+            Check the certificate of the corporate web service
+          </button>
+          <button class="btn btn__option quiz__option quiz__btn" data-index="3">
+            Run an anti-malware utility
+          </button>
+        </div>
+      </section>
+      <!-- Quiz5 Section ends -->
+
+      <!-- Result Section starts -->
+      <section class="result hide">
+        <h2 class="result__heading">Congratulations!</h2>
+        <p class="result__paragraph">
+          <span id="userResultDisplay" class="result__paragraph--highlighted">
+            5
+          </span>
+          of 5
+        </p>
+      </section>
+      <!-- Result Section ends -->
+
       <button id="nextBtn" class="quiz__next-btn hide" name="Next button">
         <img src="./images/next.png" alt="" />
+      </button>
+      <button id="finishBtn" class="btn quiz__btn finish__btn hide">
+        Finish!
       </button>
     </main>
   </body>

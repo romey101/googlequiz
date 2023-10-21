@@ -22,7 +22,7 @@ html {
 
 body {
   line-height: 1.5;
-  min-height: 100vh;
+  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -65,10 +65,8 @@ picture,
 video,
 canvas,
 svg {
- 
   display: block;
   max-width: 100%;
-  
 }
 
 input,
@@ -177,27 +175,30 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
   background-color: var(--purple);
-  /* background-image: url(./images/gradient.png); */
+  background-image: url(./images/gradient.png);
   background-repeat: no-repeat;
   background-position: center -50px, -75px 105%;
   background-size: auto 50%, 200px;
 }
 
 main {
+  grid-row: 1/2;
+  grid-column: 1/2;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto max-content;
+  grid-template-rows: 90% 10%;
   width: min(100%, 900px);
-  height: 100dvh;
+  margin: 0 auto;
+  padding: 1rem;
   background-image: url(./images/question\ mark.png);
   background-repeat: no-repeat;
   background-position: -75px 105%;
   background-size: 200px;
+  overflow: hidden;
 }
 
 .intro {
@@ -213,11 +214,13 @@ main {
 .intro__logo {
   display: grid;
   place-content: center;
-  height: 45%;
-  margin-bottom: 15px;
+  min-height: 45%;
+  margin-bottom: 30px;
 }
 
 .intro__img {
+  width: min(100%, 330px);
+  margin: auto;
 }
 
 .intro__content {
@@ -234,7 +237,7 @@ main {
 
 .intro__paragraph {
   max-width: 40ch;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .quiz {
@@ -243,26 +246,23 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  padding: 0.8rem;
 }
 
 .quiz__question {
-  align-items: center;
-  text-align: center;
   display: grid;
   place-content: center;
   height: 45%;
+  max-width: 80ch;
   font-family: 'Retropix', monospace;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .quiz__question .code span {
   display: block;
 }
 
-.quiz__question .code .code__line {
-  margin-left: 20px;
+.quiz__question .code .code__highlighted {
+  margin-bottom: 10px;
 }
 
 .quiz__options {
@@ -273,6 +273,10 @@ main {
 
 .btn__option {
   width: 250px;
+}
+
+.quiz__btn:is(:disabled) {
+  pointer-events: none;
 }
 
 .quiz__option_correct {
@@ -291,9 +295,10 @@ main {
 .quiz__option_correct:is(:active) {
   background-image: linear-gradient(
     to bottom right,
-    var(--btn-dark-green),
-    var(--btn-green)
+    var(--btn-green),
+    var(--btn-dark-green)
   );
+  box-shadow: 0px 4px 0px var(--btn-dark-green);
 }
 
 .quiz__option_wrong {
@@ -325,15 +330,48 @@ main {
   background: none;
   width: 50px;
   height: 50px;
-  margin-top: auto;
   margin-left: auto;
   margin-right: 15%;
   margin-bottom: 20px;
+  transition: all 0.5s ease;
+}
+
+.quiz__next-btn:is(:disabled) {
+  opacity: 0.3;
 }
 
 .quiz__next-btn > img {
   max-width: 30px;
   margin: auto;
+}
+
+.quiz__hint {
+  margin-top: 20px;
+}
+
+.hint {
+  position: relative;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.hint__title {
+  font-style: italic;
+  width: max-content;
+  border-bottom: 1px dotted;
+}
+
+.hint__paragraph {
+  display: none;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: hsl(0, 2%, 12%);
+}
+
+.hint__title:is(:hover, :focus, :focus-visible) + .hint__paragraph {
+  display: block;
 }
 
 .quiz__form {
@@ -344,6 +382,7 @@ main {
 }
 
 .quiz__input {
+  color: var(--white);
   padding: 12px 28px;
   border: none;
   border-radius: 10px;
@@ -359,6 +398,60 @@ main {
   color: var(--white);
 }
 
+.quiz__form-feedback {
+  margin-top: 15px;
+  max-width: 100px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.result__heading {
+  height: 20%;
+}
+
+.result__paragraph {
+  font-size: 1.5rem;
+}
+
+.result__paragraph--highlighted {
+  display: block;
+  font-size: 4em;
+  font-family: var(--bold);
+}
+
+.finish__btn {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  width: min(500px, calc(100% - 2rem));
+  margin: auto;
+  margin-bottom: 5%;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--btn-green),
+    var(--btn-dark-green)
+  );
+  box-shadow: 0px 4px 0px var(--btn-dark-green);
+}
+
+.finish__btn:is(:hover) {
+  box-shadow: 0px 6px 0px var(--btn-dark-green);
+}
+
+.finish__btn:is(:active) {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--btn-green),
+    var(--btn-dark-green)
+  );
+  box-shadow: 0px 4px 0px var(--btn-dark-green);
+}
+
 @media screen and (min-width: 480px) {
   body {
     background-size: 100% 50%, 230px;
@@ -369,7 +462,7 @@ main {
   }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
   body {
     background-size: 769px 50%, 230px;
   }
@@ -377,6 +470,18 @@ main {
   main {
     background-size: 230px;
     background-position: 0px 105%;
+  }
+
+  .intro__logo {
+    margin-bottom: 50px;
+  }
+
+  .intro__img {
+    width: min(100%, 500px);
+  }
+
+  .btn__option {
+    width: 400px;
   }
 }
 
@@ -465,19 +570,28 @@ main {
 }
 
 @keyframes quiz-in {
-  from {
+  0% {
+    opacity: 0;
     transform: translateX(100%);
   }
-  to {
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
     transform: translateX(0%);
   }
 }
 
 @-webkit-keyframes quiz-in {
   from {
+    opacity: 0;
     transform: translateX(100%);
   }
   to {
+    opacity: 1;
     transform: translateX(0%);
   }
 }
@@ -485,51 +599,44 @@ main {
 .quiz_hide {
   transform: translateX(0%);
   animation: quiz-out 0.5s forwards;
-  animation-delay: 0.5s;
   -webkit-animation: quiz-out 0.5s forwards;
-  -webkit-animation-delay: 0.5s;
 }
 
 @keyframes quiz-out {
-  to {
+  50% {
+    opacity: 0;
+  }
+  100% {
     transform: translateX(-100%);
   }
 }
 
 @-webkit-keyframes quiz-out {
+  50% {
+    opacity: 0;
+  }
   100% {
-    left: 0;
+    transform: translateX(-100%);
   }
 }
 
-.hint {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
+.result__paragraph--highlighted {
+  animation: show-result 0.5s;
+  -webkit-animation: show-result 0.5s;
 }
 
-.hint .hinttext {
-  visibility: hidden;
-  width: 350px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 30%;
-  margin-left: -60px;
-}
-.hint-left {
-  right:25%;
-  text-align: right;
+@keyframes show-result {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
-.hint:hover .hinttext {
-  visibility: visible;
+@-webkit-keyframes show-result {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
 .hide {
